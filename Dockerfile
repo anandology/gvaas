@@ -1,5 +1,6 @@
-FROM ruby:2.6-alpine
-RUN apk add graphviz
+FROM ruby:2.6
+ENV DEBIAN_FRONTEND notinteractive
+RUN apt-get update && apt-get -y install graphviz
 ADD . /app
 WORKDIR /app
 RUN bundle install
